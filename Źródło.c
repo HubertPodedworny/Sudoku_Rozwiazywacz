@@ -72,8 +72,9 @@ void sprzecznosc_gdziekolwiek(int mapa[9][9]) {
 	for (int wers = 0; wers <= 8; wers++) {
 		for (int kolumna = 0; kolumna <= 8; kolumna++) {
 			if (sprzecznosc(mapa, wers, kolumna)) {
-				printf("ALARMALARMALARMKURWAKURWAKURWA\n");
-				printf("%d, %d\n", wers, kolumna);
+				printf("ZNALEZIONO SPRZECZNOSC, PROGRAM NIE DZIALA\n");
+				printf("b³¹d w: %d, %d\n", wers, kolumna);
+				return 1;
 			}
 		}
 	}
@@ -82,18 +83,18 @@ void sprzecznosc_gdziekolwiek(int mapa[9][9]) {
 
 
 int main() {
-	int mapa[9][9] = {
-						0, 9, 0,	6, 0, 0,	8, 0, 0,
-						0, 0, 0,	5, 0, 3,	4, 0, 0,
-						8, 0, 7,	0, 0, 0,	6, 1, 0,
+	int mapa[9][9] = { //nie polecam wpisywaæ losowych kombinacji ma³ej iloœci cyfr, istnieje dok³adnie 6,670,903,752,021,072,936,960 rozwi¹zañ sudoku bez podanej ¿adnej cyfry, gdyby podaæ tylko parê cyfr rowi¹zañ nadal bêd¹ miliardy.
+						0, 0, 0,	0, 5, 6,	0, 9, 0,
+						0, 5, 0,	4, 0, 0,	0, 0, 0,
+						0, 6, 0,	3, 8, 0,	0, 4, 5,
 
-						0, 0, 0,	0, 5, 0,	0, 0, 0,
-						0, 0, 0,	7, 9, 0,	1, 0, 0,
-						0, 0, 0,	0, 0, 6,	3, 0, 0,
+						0, 0, 6,	0, 0, 0,	0, 0, 0,
+						0, 0, 0,	0, 0, 0,	0, 2, 0,
+						3, 0, 0,	0, 0, 0,	8, 0, 0,
 
-						0, 0, 0,	0, 0, 0,	0, 0, 0,
-						0, 0, 0,	0, 0, 0,	0, 0, 0,
-						0, 0, 0,	0, 0, 0,	0, 0, 0
+						0, 0, 0,	0, 4, 0,	0, 3, 0,
+						8, 0, 0,	7, 0, 3,	0, 0, 6,
+						0, 0, 7,	8, 0, 5,	0, 0, 0
 	};
 	int czy_mozna_zmienic[9][9];
 	for (int w = 0; w <= 8; w++) { // sprawdzenie czy pole jest ustalone z góry, czy do ustalenia
@@ -102,7 +103,7 @@ int main() {
 			else czy_mozna_zmienic[w][k] = 1;
 		}
 	}
-	//	//
+	//	// tutaj siedzi ca³a logika 
 	int znalezionych_rozwiazan = 0;
 	int blad_w_poprzedniej = 0;
 	int prob = 0;
@@ -129,7 +130,7 @@ int main() {
 				}
 			}
 			if(blad_w_poprzedniej == 1) {
-				przepraszam:
+				przepraszam: //tutaj program szuka poprzedniej cyfry któr¹ mo¿na zmieniæ
 				if (false) {
 					patoprogramowanie:
 					k = 9;
@@ -162,10 +163,10 @@ int main() {
 	
 		znalezionych_rozwiazan++;
 		printf("rozwiazanie %d:\n", znalezionych_rozwiazan);
-		sprzecznosc_gdziekolwiek(mapa);
 		wyswietl(mapa);
+		sprzecznosc_gdziekolwiek(mapa);
 		blad_w_poprzedniej = 1;
-		goto patoprogramowanie;
+		goto patoprogramowanie; //nie chcia³o mi siê tego tak formatowaæ by nie musieæ u¿ywaæ goto
 
 
 	return 0;
