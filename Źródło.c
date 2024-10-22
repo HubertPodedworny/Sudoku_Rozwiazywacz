@@ -84,17 +84,17 @@ void sprzecznosc_gdziekolwiek(int mapa[9][9]) {
 
 int main() {
 	int mapa[9][9] = { //nie polecam wpisywaæ losowych kombinacji ma³ej iloœci cyfr, istnieje dok³adnie 6,670,903,752,021,072,936,960 rozwi¹zañ sudoku bez podanej ¿adnej cyfry, gdyby podaæ tylko parê cyfr rowi¹zañ nadal bêd¹ miliardy.
-						0, 0, 0,	0, 5, 6,	0, 9, 0,
-						0, 5, 0,	4, 0, 0,	0, 0, 0,
-						0, 6, 0,	3, 8, 0,	0, 4, 5,
+							0, 0, 0,	0, 5, 6,	0, 9, 0,
+							0, 5, 0,	4, 0, 0,	0, 0, 0,
+							0, 6, 0,	3, 8, 0,	0, 4, 5,
 
-						0, 0, 6,	0, 0, 0,	0, 0, 0,
-						0, 0, 0,	0, 0, 0,	0, 2, 0,
-						3, 0, 0,	0, 0, 0,	8, 0, 0,
+							0, 0, 6,	0, 0, 9,	0, 0, 0,
+							0, 0, 0,	0, 7, 0,	0, 2, 0,
+							3, 0, 0,	0, 0, 0,	8, 0, 0,
 
-						0, 0, 0,	0, 4, 0,	0, 3, 0,
-						8, 0, 0,	7, 0, 3,	0, 0, 6,
-						0, 0, 7,	8, 0, 5,	0, 0, 0
+							0, 0, 0,	0, 4, 0,	0, 3, 0,
+							8, 0, 0,	7, 0, 3,	0, 0, 6,
+							0, 0, 7,	8, 0, 5,	0, 0, 0
 	};
 	int czy_mozna_zmienic[9][9];
 	for (int w = 0; w <= 8; w++) { // sprawdzenie czy pole jest ustalone z góry, czy do ustalenia
